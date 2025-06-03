@@ -7,33 +7,61 @@
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
-      background: #fff;
+      background: #202124;
       margin: 0;
-      color: #222;
+      color: #E4E4E4;
     }
     .case-container {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 40px 16px 64px 16px;
     }
-    .case-hero {
-      width: 100%;
-      border-radius: 20px;
+    .case-hero-full {
+      display: block;
+      width: 100vw;
+      max-width: 100vw;
+      height: auto;
+      margin-left: 50%;
+      transform: translateX(-50%) scale(0.9);
+      opacity: 0.5;
+      border-radius: 0;
       margin-bottom: 32px;
       object-fit: cover;
-      max-height: 340px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      transition: transform 0.6s cubic-bezier(.4,0,.2,1), opacity 0.6s cubic-bezier(.4,0,.2,1);
     }
-    .case-title {
+    h1.case-title {
       font-size: 2.2rem;
       font-weight: 700;
       margin-bottom: 8px;
       letter-spacing: -1px;
+      color: #fff;
     }
-    .case-subtitle {
+    h2.case-subtitle {
       font-size: 1.2rem;
-      color: #666;
-      margin-bottom: 32px;
+      color: #E4E4E4;
+      margin-bottom: 80px;
+    }
+    .case-subsubtitle {
+      font-size: 1rem;
+      color: #E4E4E4;
+      margin-bottom: 40px;
+      text-align: left;
+      max-width: 700px;
+      margin-left: 0;
+      margin-right: auto;
+      margin-top: -24px;
+    }
+    .highlight {
+      background: #E4002B;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 6px;
+      padding: 2px 8px 3px 8px;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      line-height: 1.7;
+      display: inline-block;
     }
     .case-section {
       margin-bottom: 32px;
@@ -53,7 +81,7 @@
     @media (max-width: 700px) {
       .case-container { padding: 16px 4px 32px 4px; }
       .case-title { font-size: 1.4rem; }
-      .case-hero { max-height: 180px; }
+      .case-hero-full { max-height: 180px; }
     }
     .video-section-bg {
       background: #e4002b;
@@ -94,24 +122,233 @@
         padding: 8px;
       }
     }
+    .overview-section-bg {
+      background: #202124;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      color: #fff;
+      padding: 56px 0 40px 0;
+      margin-bottom: 40px;
+    }
+    .overview-section {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto 40px auto;
+      padding: 0 24px;
+    }
+    .overview-label {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+      color: #fff;
+    }
+    .overview-value {
+      font-size: 1rem;
+      color: #E4E4E4;
+      opacity: 1;
+      line-height: 1.6;
+    }
+    .overview-tags {
+      display: block;
+      font-size: 0.85rem;
+      color: #bbb;
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+    .overview-blocks-row {
+      display: flex;
+      gap: 32px;
+      max-width: 1000px;
+      margin: 0 auto 32px auto;
+      padding: 0 24px;
+    }
+    .overview-block {
+      flex: 1;
+      background: transparent;
+      border: 1.5px solid #fff;
+      border-radius: 8px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    h3.overview-block-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .overview-block-desc {
+      font-size: 1rem;
+      color: #E4E4E4;
+      opacity: 1;
+      line-height: 1.7;
+    }
+    @media (max-width: 900px) {
+      .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .overview-blocks-row {
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+    .process-section {
+      background: #202124;
+      width: 100vw;
+      position: relative;
+      left: 50%;
+      right: 50%;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 80px 0;
+    }
+    .process-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .process-img {
+      margin-top: 80px;
+      max-width: 800px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h2.process-title {
+      color: #fff;
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      letter-spacing: -1px;
+    }
+    .glance-section {
+      max-width: 1000px;
+      margin: 0 auto 64px auto;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .glance-divider {
+      width: 100%;
+      border: none;
+      border-top: 2px solid #d4d4d4;
+      margin: 64px 0 32px 0;
+    }
+    h2.glance-subtitle {
+      color: #E4E4E4;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-bottom: 16px;
+      text-align: left;
+      letter-spacing: 1px;
+      width: 100%;
+      max-width: 1000px;
+    }
+    h3.glance-heading {
+      color: #fff;
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-align: left;
+      letter-spacing: -0.5px;
+      width: 100%;
+      max-width: 1000px;
+    }
+    .video-section-red {
+      background: #e4002b;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto 0 auto;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 56px 0;
+    }
   </style>
 </head>
 <body>
   <div class="case-container">
     <a href="index.html" class="back-link">← Back to Portfolio</a>
-    <img class="case-hero" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="KFC In-App Game: Colonel's Catch">
-    <div class="case-title">KFC In-App Game: Colonel's Catch</div>
-    <div class="case-subtitle">A playful in-app experience designed to engage users with interactive game mechanics and delightful visuals.</div>
+    <h1 class="case-title">KFC In-App Game: Colonel's Catch</h1>
+    <h2 class="case-subtitle">Gamifying App Engagement</h2>
+    <div class="case-subsubtitle">
+      Designing a lightweight, on-brand in-app game to drive retention and rewards engagement <span class="highlight">without a major dev lift</span>, in a price-sensitive market.
+    </div>
+    <img class="case-hero-full" src="images/colonels-catch/kfc-game-hero.jpg" alt="KFC In-App Game: Colonel's Catch">
+    <div class="overview-section-bg">
+    <section class="overview-section">
+      <div class="overview-grid">
+        <div>
+          <div class="overview-label">Duration</div>
+          <div class="overview-value">2024, 6 weeks</div>
+        </div>
+        <div>
+          <div class="overview-label">Tools</div>
+          <div class="overview-value">Figma<br>Image Generation</div>
+        </div>
+        <div>
+          <div class="overview-label">My Role</div>
+          <div class="overview-value">I led the end-to-end design of the game including exploration, scoping and the final implementation into the Cataboom platform.<br><span class="overview-tags">UI DESIGN&nbsp;&nbsp;UX DESIGN&nbsp;&nbsp;VISUAL DESIGN</span></div>
+        </div>
+      </div>
+      <div class="overview-blocks-row">
+        <div class="overview-block">
+          <h3 class="overview-block-title">Problem</h3>
+          <div class="overview-block-desc">KFC operates in a highly competitive, price-sensitive QSR market. Consumers compare apps. Traditional discounts alone were no longer a compelling hook.</div>
+        </div>
+        <div class="overview-block">
+          <h3 class="overview-block-title">Insight</h3>
+          <div class="overview-block-desc">Gamification offered a way to engage users emotionally. By delivering value through interaction, not price.<br><br>This aligned with the business' need to test lightweight engagement mechanics without full-scale development.</div>
+        </div>
+        <div class="overview-block">
+          <h3 class="overview-block-title">Challenge</h3>
+          <div class="overview-block-desc">How do you quickly test the impact of gameplay without extensive dev resources?<br><br>The challenge was proving a new engagement mechanic in-market, with third-party tech, limited rewards and no ongoing play loop</div>
+        </div>
+      </div>
+    </section>
+    </div>
+    <section class="process-section">
+      <div class="process-content">
+        <h2 class="process-title">A Process that Engaged Everyone</h2>
+        <img class="process-img" src="images/colonels-catch/process.png" alt="Process Diagram">
+      </div>
+    </section>
+    <section class="glance-section">
+      <hr class="glance-divider">
+      <h2 class="glance-subtitle">At a glance</h2>
+      <h3 class="glance-heading">Proof of concept</h3>
+      <div class="video-section-red">
+        <div class="video-phone-border">
+          <iframe class="video-phone" src="https://www.youtube.com/embed/iT_NnshDDiw" title="Colonel's Catch Demo" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
     <div class="case-section">
       <h3>Project Overview</h3>
       <p>
         Colonel's Catch is an interactive in-app game created for KFC, designed to delight and engage users while promoting brand loyalty. The game features fun mechanics, vibrant visuals, and seamless integration with the KFC app experience.
-      </p>
-    </div>
-    <div class="case-section">
-      <h3>My Role</h3>
-      <p>
-        As the Senior Experience Designer, I led the UX/UI design, collaborated with developers and stakeholders, and ensured the game was accessible, intuitive, and visually appealing.
       </p>
     </div>
     <div class="case-section">
@@ -129,11 +366,23 @@
         The game increased user engagement and time spent in the app, while providing a memorable, branded experience for KFC customers.
       </p>
     </div>
-    <div class="video-section-bg">
-      <div class="video-phone-border">
-        <iframe class="video-phone" src="https://www.youtube.com/embed/iT_NnshDDiw" title="Colonel's Catch Demo" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
   </div>
+  <script>
+    window.addEventListener('scroll', function() {
+      const hero = document.querySelector('.case-hero-full');
+      if (!hero) return;
+      const rect = hero.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      // If the hero image is in the viewport, animate to full size and opacity
+      if (rect.top < windowHeight && rect.bottom > 0) {
+        hero.style.transform = 'translateX(-50%) scale(1)';
+        hero.style.opacity = '1';
+      } else {
+        hero.style.transform = 'translateX(-50%) scale(0.9)';
+        hero.style.opacity = '0.5';
+      }
+      hero.style.transition = 'transform 0.6s cubic-bezier(.4,0,.2,1), opacity 0.6s cubic-bezier(.4,0,.2,1)';
+    });
+  </script>
 </body>
 </html> 
